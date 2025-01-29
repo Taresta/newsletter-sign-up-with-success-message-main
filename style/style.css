@@ -13,14 +13,14 @@ body {
   font-size: clamp(13px, 13px + 0.5vw, 16px);
   color: hsl(234, 29%, 20%);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 1em;
   min-height: 100vh;
 }
 
-div.hidden {
+section.hidden {
   display: none;
 }
 
@@ -44,7 +44,6 @@ button:hover {
   font-size: 11px;
   text-align: center;
 }
-
 .attribution a {
   color: hsl(0, 0%, 100%);
 }
@@ -52,8 +51,9 @@ button:hover {
 .newsletter-form-card {
   background-color: hsl(0, 0%, 100%);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 1.5em;
   border-radius: 20px;
 }
@@ -113,9 +113,10 @@ button:hover {
 .thankyou-message-card {
   background-color: hsl(0, 0%, 100%);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
   min-height: 100vh;
   padding: 1rem;
 }
