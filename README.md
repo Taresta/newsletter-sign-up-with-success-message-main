@@ -32,9 +32,9 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile](./screenshot.jpg)
+![Mobile](./design/Mobile.png)
 
-![Desktop](./screenshot.jpg)
+![Desktop](./design/Desktop.png)
 
 ### Links
 
