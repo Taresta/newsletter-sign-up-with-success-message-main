@@ -23,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
         emailField.value = '';
         toggleCards();
     }
+    const handleInputChange = () => {
+        if (emailField.classList.contains('invalid')) {
+            emailField.classList.remove('invalid');
+            hideError();
+        }
+    }
     function showError(field) {
         emailError.classList.remove('hidden'); //Show the error field
         emailError.textContent = 'Valid email required.';
@@ -37,6 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     form.addEventListener('submit', handleFormSubmit);
     dismissBtn.addEventListener('click', handleDismiss);
-
+    emailField.addEventListener('change', handleInputChange);
 });
 
