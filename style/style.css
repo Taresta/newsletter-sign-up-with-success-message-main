@@ -34,6 +34,7 @@ button {
   font-weight: 700;
   width: 100%;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 button:hover {
   background-color: hsl(4, 100%, 67%);
