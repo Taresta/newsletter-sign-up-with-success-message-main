@@ -16,8 +16,6 @@ This is a solution to the [Newsletter sign-up form with success message challeng
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -34,20 +32,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Mobile](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Desktop](./screenshot.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://github.com/Taresta/newsletter-sign-up-with-success-message-main.git)
+- Live Site URL: [Live Site URL]()
 
 ## My process
 
@@ -56,61 +48,51 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
+- SCSS
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
+ Here are my lessons for this project. I had made a lot of mistakes and as a result learnt a lot too.
+ 1. Style not working for my newletter form: The solution to it was actually very simple. I simply forgot to add the link to the style file in my HTML and that is why any style that I applied was not working.
+ 2. Svgs in my list section were getting distorted: Here some were appearing bigger than the others, some smaller and some even flattened. The solution to this problem was that since their parent was a flexbox, I applied flex-shrink zero in their styling, and with this they retained their aspect ratio.
+3. Style not being applied to the form element: Here the problem was not a link but that the live server was not giving the latest feed. I restarted it again and the styles were applied.
+4. An interesting observation: Here this time I had not set a max-width for my sections, but they stopped growing after some width. This is because of the align-items: center property on their parent flex container, which was not letting the elements to spread as they wanted.
+5. Sizing the image: This is a common problem I usually face in my projects. Aligning and sizing the images. Here, the image was smaller than the parent'size, and I want to occupy the whole width of the parent, so the solution was simple. That is to set the width:100%, but this did not solve the problem because the image was inside the picture element so I had to set that to 100% was well and this time it worked.
+6. I was having problem in toggling between newsletter-form section and the thank-you message section: The reason was the selector hierarchy. I had applied the display:flex to news-letter form section using id, whereas I was applyinh hidden style to it using class. Since, id has higher precedence over class, this was not working.
+    Solution step 1: 
+    - Change the id to class for both the newsletter-form section and the  thank-you message section.
+    - Update the CSS to use the new class selectors.
+    - Update the JavaScript to use the new class selectors.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+    Solution step 2:
+    - Now, I have two classes for newsletter form, one that says that the class is hidden and the other that says that the class is flex. So, hidden was not working again. Solution I had to give the hidden selector a higher precedence, so I used section.hidden instead of just .hidden.
+7. What is a mixin and how to apply it: I have a style that I used many times in my project which is display:flex, align-items: center, justify-content:center. So, mixins can help us remove this redundancy by declaring this style only once and then calling this reference whenever we need by using @include.
+8. Refactoring: Remove redundancy, make your code simpler and easier. Like in javascript I had an if, else statement where both the if and else part does the same thing. I do not why I even applied it in the first place, so when I refactored my code, I removed to make the code simpler and less redundant.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@mixin flex-center {
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I want to continue to improve my knowledge of advanced css techniques. I want to understand basics of javascript well, and I want to continue to improve my skills of writing code that is simple and efficient. Also I want to write HMTL that is semantical and aligns with accessibility.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Frontend Mentor Article on Forms](https://www.frontendmentor.io/learning-paths/javascript-fundamentals-oR7g6-mTZ-/steps/66d537703c19191dc3bc0d32/article/read) - They have provided a good overview for managing forms with javascript and share great resources to futher increase our knowledge on this topic.
+- [FreeCodeCamp Article on Forms ](https://www.freecodecamp.org/news/build-and-validate-beautiful-forms-with-vanilla-html-css-js/) - This is also another good resource which helped me futher in deeping my knowledge in managing forms with javascript.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
+- Website - [Taresta](https://github.com/Taresta)
+- Frontend Mentor - [Paradox](https://www.frontendmentor.io/profile/Taresta)
 ## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Thanks to all the great articles and good resources out there.
