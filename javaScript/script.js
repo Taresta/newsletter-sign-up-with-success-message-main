@@ -43,6 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     form.addEventListener('submit', handleFormSubmit);
     dismissBtn.addEventListener('click', handleDismiss);
-    emailField.addEventListener('change', handleInputChange);
+    emailField.addEventListener('input', handleInputChange);
 });
 
